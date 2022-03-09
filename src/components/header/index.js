@@ -316,7 +316,39 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-     
+        {/* <Router history={history}> */}
+          {/* <Switch>  */}
+            {/* <Route exact path="/login" component={Login} /> */}
+            {/* <Route exact path="/signup" component={Signup} /> */}
+            {/* <div> */}
+            {/* <Header /> */}
+            <Suspense fallback={<React.Fragment />}>
+              {routes.map((route: Object, index: number) => {
+                return route.authRequired ? (
+                  <AuthRoute
+                    component={route.component}
+                    exact={true}
+                    key={index}
+                    name={route.name}
+                    path={route.path}
+                    title={route.title}
+                  />
+                ) : (
+                  <Route
+                    component={route.component}
+                    exact
+                    key={index}
+                    name={route.name}
+                    path={route.path}
+                    title={route.title}
+                  />
+                );
+              })}
+              {/* <Redirect to="/not-found" /> */}
+            </Suspense>
+            {/* </div> */}
+          {/* </Switch> */}
+        {/* </Router> */}
       </Box>
     </Box>
   );

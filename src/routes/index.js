@@ -19,6 +19,13 @@ const routes = [
     component: CarPartner,
     authRequired: false,
   },
+  {
+    path: "/login",
+    exact: true,
+    name: "Login",
+    component: Login,
+    authRequired: false,
+  },
 
 ];
 export default routes;
