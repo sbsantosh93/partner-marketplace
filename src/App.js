@@ -51,6 +51,7 @@ function App() {
             </div>
           </Switch>
         </Router>
+        <Header />
       </div>
     </AuthContextProvider>
   );

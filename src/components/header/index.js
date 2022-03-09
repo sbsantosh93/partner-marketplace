@@ -316,7 +316,6 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-     
       </Box>
     </Box>
   );

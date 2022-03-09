@@ -18,7 +18,7 @@ const routes = [
     name: "CarPartner",
     component: CarPartner,
     authRequired: false,
-  },
+  }
 
 ];
 export default routes;
