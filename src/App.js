@@ -1,5 +1,6 @@
 import "./App.css";
 import {
+  BrowserRouter,
   Router,
   Switch,
   Route,
@@ -19,6 +20,14 @@ function App() {
     <AuthContextProvider>
       <div className="App">
         <Router history={history}>
+          <Switch>
+            <Route exact path="/signup" component={Signup} />
+            <Route component={Header} />
+            {/* <Header /> */}
+          </Switch>
+        </Router>
+
+        {/* <Router history={history}>
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
@@ -50,7 +59,7 @@ function App() {
               </Suspense>
             </div>
           </Switch>
-        </Router>
+        </Router> */}
       </div>
     </AuthContextProvider>
   );
