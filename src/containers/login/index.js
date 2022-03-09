@@ -7,6 +7,7 @@ import { useLazyQuery, useMutation, useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { useAuth } from "../../contexts/AuthContext";
 import { useStyles } from "./loginStyle";
+import { theme } from "../../theme";
 
 
 
@@ -109,7 +110,7 @@ const LoginForm = () => {
                 <Field as={TextField} name="password" fullWidth size="small"/>
                 <ErrorMessage name="password" component="div" />
               </Grid>
-              <Button type="submit" variant="contained">
+              <Button type="submit" variant="contained" sx={{backgroundColor:'primary.magic'}}>
                 Submit
               </Button>
             </Grid>

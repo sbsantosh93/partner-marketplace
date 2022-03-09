@@ -49,6 +49,7 @@ const AuthRoute = ({ component: Component, path,isAuthenticated,  title, ...rest
   return (
     <Route
       {...rest}
+      exact
       render={(props: Object) =>
         currentUser ? (
           <Component {...props} />
