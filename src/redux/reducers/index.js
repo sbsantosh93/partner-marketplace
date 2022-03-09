@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-import { productReducer, selectedProductReducer } from "./productReducer";
+import { Authtentication } from "./reducers";
 
 const reducers = combineReducers({
-  allProducts: productReducer,
-  product: selectedProductReducer,
+  login:Authtentication
 });
 
 export default reducers;

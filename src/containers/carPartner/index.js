@@ -1,9 +1,13 @@
 import React from 'react'
+import { useAuth } from '../../contexts/AuthContext'
 
-const carPartner = () => {
+const CarPartner = () => {
+  const {currentUser}=useAuth()
   return (
-    <div>carPartner</div>
+    <>
+    {currentUser && <pre> {JSON.stringify(currentUser, null, 2)}</pre>}
+    </>
   )
 }
 
-export default carPartner
+export default CarPartner

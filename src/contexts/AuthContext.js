@@ -1,6 +1,9 @@
+// @flow
+/* eslint-disable */
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../utlis/init-firebase'
 import { signInWithEmailAndPassword,onAuthStateChanged,createUserWithEmailAndPassword} from "firebase/auth"
+import { useHistory } from 'react-router-dom'
 
 const AuthContext=createContext({
     currentUser:null,
@@ -17,11 +20,18 @@ const AuthContext=createContext({
 export default function AuthContextProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
     const [isAuthenticatedFire,setIsAuthenticatedFire]=useState(false)
+    const history=useHistory()
+    
 
     
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
       setCurrentUser(user ? user : null)
+      if(user==null){
+        history.push('/register')
+      }
+
+
     })
     return () => {
       unsubscribe()
@@ -29,7 +39,7 @@ export default function AuthContextProvider({ children }) {
   }, [])
 
   useEffect(() => {
-    console.log('The user is', currentUser)
+    // console.log('The user is', currentUser)
   }, [currentUser])
 
   function loginFirebase (email, password) {
